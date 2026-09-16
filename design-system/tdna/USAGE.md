@@ -10,7 +10,8 @@ Package guide for OpenDesign agents building Taiwan Digital Nomad Association (T
 4. Load fonts from Google Fonts: `Figtree` (400–800) and `Noto Sans TC` (400/500/700/900). Print and key visuals use the licensed TT Hei CHS Variable / TT Commons Pro — do not substitute those with other faces on the web; Figtree + Noto Sans TC is the only approved web pairing.
 5. Reuse the recipes in `components.html` (spine page shell, hero, buttons, pills, KPI cards, panel, tint cards, form, table, note, toast, footer) before inventing new controls.
 6. Pick the logo lockup from `assets/logo/` that fits the space (`logo-*`, `stacked-*`, `horizontal-*`, `wordmark-*`; each in `black` and `white`). Never assemble a lockup yourself.
-7. Open `preview/` pages for a visual sanity check of colours, type scale, spacing, logos and components.
+7. `assets/pattern.svg` is the auxiliary pattern (four densities, eight CIS colours): use one row as a divider or edge band, scaled proportionally, never rearranged.
+8. Open `preview/` pages for a visual sanity check of colours, type scale, spacing, logos and components.
 
 ## Design Highlights
 

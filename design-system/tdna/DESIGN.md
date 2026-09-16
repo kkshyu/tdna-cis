@@ -90,7 +90,7 @@ Ten official CIS colours. Print uses CMYK, screen uses HEX. Values never change;
 - Colour: black on white, light grey or light tints; white on CIS black or any solid CIS colour. No other colours, no gradients, no shadows, no outlines.
 - Clear space: 50% of the mark height on all four sides for any lockup that contains the mark; wordmark-only lockups use the cap height of the `T`. Minimum: mark ≥ 24px tall in UI (favicon and nav may use the mark alone), horizontal lockups ≥ 120px wide.
 - Do not: crop, change arrangement, use gradients, change proportions, apply effects, add shadows, change the wordmark typeface, outline.
-- Auxiliary pattern: derived from the slab-serif strokes, geometric stroke ends counted in squares, colours interleaved in a rhythm; extends horizontally, mirrored left–right. The vector is not yet exported — take it from the VI 2.1 PDF chapter 5 or `TDNA Brand Assets.ai`; do not redraw it in CSS.
+- Auxiliary pattern (`assets/pattern.svg`): horizontal bands of square-ended blocks in eight CIS colours (no grey or black), derived from the slab-serif stroke ends; four densities stacked in the file, each row extends horizontally and is mirrored left–right. Use a whole row as a divider, header strip, footer band or poster edge; scale proportionally, never rearrange blocks, recolour, rotate or redraw it in CSS.
 
 ## Components
 
