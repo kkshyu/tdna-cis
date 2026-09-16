@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TDNA logo and lockups</title>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;800&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../tokens.css" />
+    <link rel="stylesheet" href="_base.css" />
+    <style>
+      .logos figure { margin: 0; border: 1px solid var(--border); background: #fff; padding: var(--space-5); display: grid; gap: var(--space-3); align-content: space-between; }
+      .logos figure.dark { background: var(--tdna-black); }
+      .logos figure.blue { background: var(--tdna-blue); }
+      .logos figure.yellow { background: var(--tdna-yellow); }
+      .logos img { width: 100%; height: auto; max-height: 110px; object-fit: contain; }
+      .logos figcaption { font-size: var(--text-xs); color: var(--muted); display: flex; justify-content: space-between; gap: var(--space-2); flex-wrap: wrap; }
+      .logos figure.dark figcaption, .logos figure.blue figcaption { color: #C9CAC3; }
+      .clear { display: grid; place-items: center; padding: var(--space-8); border: 1px dashed var(--border); background: var(--surface); }
+      .clear .box { position: relative; padding: min(40px, 7vw); outline: 1px dashed var(--danger); background: #fff; max-width: 100%; }
+      .clear .box img { width: 534px; max-width: 100%; height: auto; }
+      .clear .box::after { content: "clear space = 50% of mark height"; position: absolute; right: 4px; top: 4px; font-size: 11px; color: var(--danger); }
+      ul { margin: var(--space-2) 0 0; padding-left: 1.2em; color: var(--fg-2); font-size: var(--text-sm); }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="label">2. 品牌標誌</p>
+      <h1>Mark and twelve fixed lockups</h1>
+      <p>Slab-serif <code>TDNA</code>: structure and organisation as the concept, balance and stability in the composition, liveliness from the slab terminals. Pick the lockup that fits the space; never re-assemble one.</p>
+
+      <section class="grid g3 logos">
+        <figure><img src="../assets/logo/logo-black.svg" alt="TDNA mark" /><figcaption><span>標誌 Logo</span><code>logo-black.svg</code></figcaption></figure>
+        <figure><img src="../assets/logo/stacked-square-black.svg" alt="" /><figcaption><span>直式方形</span><code>stacked-square</code></figcaption></figure>
+        <figure><img src="../assets/logo/stacked-zh-en-black.svg" alt="" /><figcaption><span>直式 中＋英</span><code>stacked-zh-en</code></figcaption></figure>
+        <figure><img src="../assets/logo/stacked-zh-black.svg" alt="" /><figcaption><span>直式 中文</span><code>stacked-zh</code></figcaption></figure>
+        <figure><img src="../assets/logo/stacked-en-black.svg" alt="" /><figcaption><span>直式 英文單行</span><code>stacked-en</code></figcaption></figure>
+        <figure><img src="../assets/logo/stacked-en2-black.svg" alt="" /><figcaption><span>直式 英文雙行</span><code>stacked-en2</code></figcaption></figure>
+        <figure><img src="../assets/logo/horizontal-zh-en-black.svg" alt="" /><figcaption><span>橫式 中＋英</span><code>horizontal-zh-en</code></figcaption></figure>
+        <figure><img src="../assets/logo/horizontal-zh2-en2-black.svg" alt="" /><figcaption><span>橫式 中英雙行</span><code>horizontal-zh2-en2</code></figcaption></figure>
+        <figure><img src="../assets/logo/horizontal-zh-black.svg" alt="" /><figcaption><span>橫式 中文</span><code>horizontal-zh</code></figcaption></figure>
+        <figure><img src="../assets/logo/horizontal-zh2-black.svg" alt="" /><figcaption><span>橫式 中文雙行</span><code>horizontal-zh2</code></figcaption></figure>
+        <figure><img src="../assets/logo/horizontal-en-black.svg" alt="" /><figcaption><span>橫式 英文</span><code>horizontal-en</code></figcaption></figure>
+        <figure><img src="../assets/logo/wordmark-zh-en-black.svg" alt="" /><figcaption><span>標準字 中＋英（無標誌）</span><code>wordmark-zh-en</code></figcaption></figure>
+      </section>
+
+      <h2>On colour</h2>
+      <section class="grid g3 logos">
+        <figure class="dark"><img src="../assets/logo/horizontal-zh-en-white.svg" alt="" /><figcaption><span>白色版 · CIS 黑</span><code>*-white.svg</code></figcaption></figure>
+        <figure class="blue"><img src="../assets/logo/stacked-square-white.svg" alt="" /><figcaption><span>白色版 · CIS 藍</span><code>*-white.svg</code></figcaption></figure>
+        <figure class="yellow"><img src="../assets/logo/horizontal-en-black.svg" alt="" /><figcaption><span>黑色版 · CIS 黃</span><code>*-black.svg</code></figcaption></figure>
+      </section>
+
+      <h2>Clear space</h2>
+      <div class="clear"><div class="box"><img src="../assets/logo/logo-black.svg" alt="clear space demo" /></div></div>
+      <p class="note">Any lockup containing the mark keeps 50% of the mark height free on all sides; wordmark-only lockups use the cap height of the <code>T</code>. Minimum in UI: mark 24px tall; horizontal lockups 120px wide.</p>
+
+      <h2>Do not</h2>
+      <section class="grid g2">
+        <article class="cell"><strong style="color: var(--danger)">禁止</strong><ul><li>裁切標誌</li><li>更改排列組合</li><li>使用漸層色</li><li>更改比例（拉伸、壓扁）</li></ul></article>
+        <article class="cell"><strong style="color: var(--danger)">禁止</strong><ul><li>破壞或套用效果</li><li>增加陰影</li><li>更改標準字型</li><li>外框處理</li></ul></article>
+      </section>
+    </main>
+  </body>
+</html>

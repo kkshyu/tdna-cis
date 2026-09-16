@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TDNA buttons and pills</title>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;800&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../tokens.css" />
+    <link rel="stylesheet" href="_base.css" />
+    <style>
+      .row { display: flex; gap: var(--space-2); flex-wrap: wrap; align-items: center; margin: var(--space-3) 0; }
+      .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 36px; padding: 0 14px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--surface); color: var(--fg); font: inherit; font-weight: 600; white-space: nowrap; text-decoration: none; cursor: pointer; transition: background var(--motion-base) var(--ease-standard), box-shadow var(--motion-base) var(--ease-standard), transform var(--motion-base) var(--ease-standard); }
+      .btn:hover { background: var(--border-soft); }
+      .btn:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+      .btn.pri { background: var(--accent); color: var(--accent-on); border-color: var(--accent); }
+      .btn.pri:hover, .btn.pri.is-hover { box-shadow: var(--elev-raised); transform: translate(-1px, -1px); }
+      .btn.pri:active, .btn.pri.is-active { background: var(--accent-active); box-shadow: none; transform: none; }
+      .btn.is-focus { box-shadow: var(--focus-ring); }
+      .btn.danger { color: var(--danger); border-color: var(--danger); }
+      .btn.sm { min-height: 32px; padding: 0 10px; font-size: var(--text-xs); }
+      .btn[disabled] { opacity: 0.5; cursor: not-allowed; }
+      .link { color: var(--accent); font-weight: 600; }
+      .pill { display: inline-block; padding: 1px 8px; font-size: var(--text-xs); font-weight: 600; border: 1px solid var(--border); white-space: nowrap; }
+      .pill.good { border-color: var(--success); color: var(--success); }
+      .pill.warn { border-color: var(--warn); color: var(--warn); }
+      .pill.bad { border-color: var(--danger); color: var(--danger); }
+      .pill.brand { border-color: var(--accent); color: var(--accent); }
+      .pill.muted { color: var(--muted); }
+      .toast { display: inline-block; background: var(--fg); color: var(--bg); padding: 8px 14px; font-weight: 600; }
+      .tag { display: inline-block; padding: 2px 8px; font-size: var(--text-xs); font-weight: 600; border: 1px solid var(--border); }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="label">元件 · Buttons</p>
+      <h1>Buttons, pills, tags</h1>
+
+      <h2>Buttons</h2>
+      <div class="row"><button class="btn pri">儲存</button><button class="btn">取消</button><button class="btn danger">刪除</button><button class="btn sm">編輯</button><button class="btn" disabled>處理中</button><a class="link" href="#">查看全部</a></div>
+      <h2>Primary states</h2>
+      <div class="row"><button class="btn pri">default</button><button class="btn pri is-hover">hover · raised</button><button class="btn pri is-active">active</button><button class="btn pri is-focus">focus ring</button></div>
+      <p class="note">36px min height, 14px / 600, square. One primary per view. Hover lifts with the hard 4px ink shadow and a 1px up-left translate; active drops to <code>--accent-active</code>. Phones: 44px min height.</p>
+
+      <h2>Status pills</h2>
+      <div class="row"><span class="pill good">已付款</span><span class="pill warn">待處理</span><span class="pill bad">失敗</span><span class="pill brand">進行中</span><span class="pill muted">已封存</span></div>
+      <p class="note">Status colour is only good / warn / bad / brand. CIS colours never encode status.</p>
+
+      <h2>Category tags (CIS fills)</h2>
+      <div class="row">
+        <span class="tag" style="background: var(--tdna-yellow); color: var(--tdna-black)">聚會</span>
+        <span class="tag" style="background: var(--tdna-cyan); color: var(--tdna-black)">Workation</span>
+        <span class="tag" style="background: var(--tdna-pink); color: var(--tdna-black)">工作坊</span>
+        <span class="tag" style="background: var(--tdna-blue); color: #fff">講座</span>
+        <span class="tag" style="background: var(--tdna-plum); color: #fff">徵才</span>
+        <span class="tag" style="background: var(--tdna-red); color: #fff">公告</span>
+      </div>
+      <p class="note">Fills use the original CIS values with the text colour from the AA table. Orange and green fills carry white text only at display sizes, so they are not used for 12px tags.</p>
+
+      <h2>Toast</h2>
+      <div class="row"><span class="toast">已儲存</span><span class="toast" style="background: var(--danger); color: #fff">送出失敗，請再試一次</span></div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TDNA spacing, edges and shadow</title>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;800&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../tokens.css" />
+    <link rel="stylesheet" href="_base.css" />
+    <style>
+      .steps { display: flex; gap: var(--space-4); flex-wrap: wrap; align-items: flex-end; }
+      .steps figure { margin: 0; text-align: center; font-size: var(--text-xs); color: var(--muted); font-family: var(--font-mono); }
+      .steps i { display: block; height: 24px; background: var(--accent); margin: 0 auto var(--space-1); }
+      .demo { min-height: 120px; display: grid; place-items: center; }
+      .sq { width: 96px; height: 64px; background: var(--surface); border: 1px solid var(--border); display: grid; place-items: center; font-size: var(--text-xs); }
+      .ring { box-shadow: var(--elev-ring); border: 0; }
+      .raised { box-shadow: var(--elev-raised); }
+      .focus { box-shadow: var(--focus-ring); }
+      .spine { border-left: var(--tdna-spine-width) solid var(--tdna-spine); }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="label">6. 數位介面 · 間距、邊角、陰影</p>
+      <h1>4px grid, square corners, hard shadow</h1>
+
+      <h2>Spacing steps</h2>
+      <div class="steps">
+        <figure><i style="width: 4px"></i>s1 4</figure>
+        <figure><i style="width: 8px"></i>s2 8</figure>
+        <figure><i style="width: 12px"></i>s3 12</figure>
+        <figure><i style="width: 16px"></i>s4 16</figure>
+        <figure><i style="width: 24px"></i>s6 24</figure>
+        <figure><i style="width: 32px"></i>s8 32</figure>
+        <figure><i style="width: 48px"></i>s12 48</figure>
+      </div>
+      <p class="note">Component padding s3–s4, block gaps s6–s8, section rhythm s12 / 64 / 48 / 32. <code>--space-5</code> (20px) exists for the token contract and is not used.</p>
+
+      <h2>Edges and elevation</h2>
+      <section class="grid g4">
+        <article class="cell demo"><div class="sq">radius 0</div></article>
+        <article class="cell demo"><div class="sq ring">--elev-ring</div></article>
+        <article class="cell demo"><div class="sq raised">--elev-raised</div></article>
+        <article class="cell demo"><div class="sq focus">--focus-ring</div></article>
+      </section>
+      <p class="note">Every box is square. Hover on primary buttons and cards adds the hard 4px ink offset and moves the element 1px up-left. No blur, gradient, glass or glow.</p>
+
+      <h2>Spine and container</h2>
+      <section class="grid g2">
+        <article class="cell spine"><strong>Page or card spine</strong><p>10px of <code>--tdna-spine</code> yellow on the left edge, once per page or per card. Hub cards swap the bar colour per card via <code>--card-bar</code>.</p></article>
+        <article class="cell"><strong>Container</strong><p><code>--container-max</code> 1100px (admin 1200px). Gutters 32 / 24 / 16px. Phones drop the outer margin and keep the spine; tables scroll inside <code>.tbl</code>, the page never scrolls sideways.</p></article>
+      </section>
+    </main>
+  </body>
+</html>

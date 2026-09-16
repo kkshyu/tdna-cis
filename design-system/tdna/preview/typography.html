@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TDNA typography</title>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../tokens.css" />
+    <link rel="stylesheet" href="_base.css" />
+    <style>
+      .spec > div { padding: var(--space-2) 0; border-bottom: 1px solid var(--border-soft); }
+      .spec > div:last-child { border-bottom: 0; }
+      .row { display: grid; grid-template-columns: 120px 1fr; gap: var(--space-4); align-items: baseline; }
+      .row small { font-size: var(--text-xs); color: var(--muted); font-family: var(--font-mono); }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="label">4. 品牌文字</p>
+      <h1>Figtree + Noto Sans TC on the web</h1>
+      <p>Print and key visuals use the licensed TT Hei CHS Variable (中文) and TT Commons Pro (English). The web has no licence, so it substitutes two geometric sans faces whose weights line up.</p>
+
+      <section class="grid g2">
+        <article class="cell spec">
+          <div class="label">中文 · TT Hei CHS Variable → Noto Sans TC</div>
+          <div style="font-weight: 400">400　台灣數位遊牧者協會 自由接案</div>
+          <div style="font-weight: 500">500　台灣數位遊牧者協會 自由接案</div>
+          <div style="font-weight: 700">700　台灣數位遊牧者協會 自由接案</div>
+          <div style="font-weight: 900">900　台灣數位遊牧者協會 自由接案</div>
+        </article>
+        <article class="cell spec">
+          <div class="label">English · TT Commons Pro → Figtree</div>
+          <div style="font-weight: 400">400　Digital Nomad ABCDEFG abcdefg 0123456789</div>
+          <div style="font-weight: 500">500　Digital Nomad ABCDEFG abcdefg 0123456789</div>
+          <div style="font-weight: 700">700　Digital Nomad ABCDEFG abcdefg 0123456789</div>
+          <div style="font-weight: 800">800　Digital Nomad ABCDEFG abcdefg 0123456789</div>
+        </article>
+      </section>
+
+      <h2>Scale</h2>
+      <section class="cell spec">
+        <div class="row"><small>--text-4xl 40/800</small><span style="font-size: var(--text-4xl); font-weight: 800; letter-spacing: -0.02em; line-height: var(--leading-tight)">數位遊牧，從台灣出發</span></div>
+        <div class="row"><small>--text-3xl 30/800</small><span style="font-size: var(--text-3xl); font-weight: 800; letter-spacing: -0.02em">1,248 <span style="font-size: var(--text-sm); font-weight: 600; color: var(--muted)">人</span></span></div>
+        <div class="row"><small>--text-2xl 26/800</small><span style="font-size: var(--text-2xl); font-weight: 800; letter-spacing: var(--tracking-display)">頁面標題 Page title</span></div>
+        <div class="row"><small>--text-xl 18/800</small><span style="font-size: var(--text-xl); font-weight: 800">對話框標題 Modal title</span></div>
+        <div class="row"><small>--text-lg 15/700</small><span style="font-size: var(--text-lg); font-weight: 700">面板標題 Panel title</span></div>
+        <div class="row"><small>--text-base 14/400</small><span>內文預設 body。數字採 tabular-nums 對齊：1,204　1,999</span></div>
+        <div class="row"><small>--text-sm 13/400</small><span style="font-size: var(--text-sm); color: var(--fg-2)">次級內文、卡片地點、表單錯誤訊息</span></div>
+        <div class="row"><small>--text-xs 12/600</small><span class="label">標籤 Label · uppercase · 0.12em</span></div>
+      </section>
+      <p class="note">Body leading 1.5, headings 1.15 with <code>text-wrap: balance</code>. Nothing below 12px. Chinese body copy is never letter-spaced; the English wordmark is uppercase only inside lockups.</p>
+    </main>
+  </body>
+</html>

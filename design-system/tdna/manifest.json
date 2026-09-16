@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "od-design-system-project/v1",
+  "id": "tdna",
+  "name": "TDNA — Taiwan Digital Nomad Association",
+  "category": "Brands",
+  "description": "Taiwan Digital Nomad Association brand system (VI 2.1, Aug 2024): slab-serif TDNA mark, ten fixed CIS colours, Figtree + Noto Sans TC on the web, square corners, hard offset shadows, a 10px yellow spine. Semantic tokens shared by admin.dna.org.tw, hub.dna.org.tw and cis.dna.org.tw.",
+  "source": {
+    "type": "local",
+    "origin": "cis.dna.org.tw / cis/design-system/tdna (github.com/kkshyu/tdna-cis)"
+  },
+  "files": {
+    "design": "DESIGN.md",
+    "tokens": "tokens.css",
+    "tailwind": "tailwind-v4.css",
+    "components": "components.html"
+  },
+  "usage": "USAGE.md",
+  "importMode": "hybrid",
+  "craft": {
+    "applies": ["color", "type", "accessibility-baseline"],
+    "suggested": ["layout"],
+    "exemptions": ["radius"]
+  },
+  "assetsDir": "assets",
+  "preview": {
+    "dir": "preview",
+    "pages": [
+      { "path": "preview/colors.html", "role": "colors", "title": "Colours" },
+      { "path": "preview/typography.html", "role": "typography", "title": "Typography" },
+      { "path": "preview/spacing.html", "role": "spacing", "title": "Spacing, edges and shadow" },
+      { "path": "preview/logo.html", "role": "brand", "title": "Logo and lockups" },
+      { "path": "preview/components-buttons.html", "role": "buttons", "title": "Buttons and pills" },
+      { "path": "preview/components-inputs.html", "role": "inputs", "title": "Inputs" },
+      { "path": "preview/app.html", "role": "app", "title": "App preview" }
+    ]
+  }
+}

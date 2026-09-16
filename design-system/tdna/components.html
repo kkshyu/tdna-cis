@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TDNA - reference components</title>
+    <meta name="description" content="Reference fixture for design-systems/tdna: ten CIS colours behind a semantic token layer, Figtree + Noto Sans TC, square corners, hard offset shadow, 10px yellow spine." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        /* ─── Surface ─── light grey paper for the page, white for panels; warm tint is the pink CIS colour mixed into white */
+        --bg: #F6F6F6;
+        --surface: #FFFFFF;
+        --surface-warm: color-mix(in srgb, #F9D2E5 50%, #FFFFFF);
+
+        /* ─── Foreground ─── near-black ink for text; ink2 for secondary copy and field labels */
+        --fg: #1E1F1C;
+        --fg-2: #4A4C47;
+        --muted: #66685F;
+        --meta: var(--muted);
+
+        /* ─── Border ─── warm greys; soft for inner rows */
+        --border: #DCDDD8;
+        --border-soft: #ECEDE9;
+
+        /* ─── Accent ─── CIS blue is the only action colour; white text on it (8.2:1) */
+        --accent: #004E9D;
+        --accent-on: #FFFFFF;
+        --accent-hover: color-mix(in oklab, var(--accent), black 8%);
+        --accent-active: color-mix(in oklab, var(--accent), black 14%);
+
+        /* ─── Semantic ─── CIS green / orange / red pressed darker so they pass 4.5:1 as text on white */
+        --success: #007A31;
+        --warn: #C4380C;
+        --danger: #C7002F;
+
+        /* ─── Typography ─── print uses TT Hei CHS / TT Commons Pro (licensed); web substitutes Figtree + Noto Sans TC */
+        --font-display: "Figtree", "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+        --font-body: "Figtree", "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+        --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Monaco, Consolas, monospace;
+
+        /* type scale — 14px body, 12px labels are the floor */
+        --text-xs: 12px;
+        --text-sm: 13px;
+        --text-base: 14px;
+        --text-lg: 15px;
+        --text-xl: 18px;
+        --text-2xl: 26px;
+        --text-3xl: 30px;
+        --text-4xl: 40px;
+        --leading-body: 1.5;
+        --leading-tight: 1.15;
+        --tracking-display: -0.01em;
+
+        /* ─── Spacing ─── 4px grid; TDNA uses steps 1·2·3·4·6·8 (4/8/12/16/24/32) — step 5 exists for the contract only */
+        --space-1: 4px;
+        --space-2: 8px;
+        --space-3: 12px;
+        --space-4: 16px;
+        --space-5: 20px;
+        --space-6: 24px;
+        --space-8: 32px;
+        --space-12: 48px;
+        --section-y-desktop: 64px;
+        --section-y-tablet: 48px;
+        --section-y-phone: 32px;
+
+        /* ─── Radius ─── none; every box is square */
+        --radius-sm: 0px;
+        --radius-md: 0px;
+        --radius-lg: 0px;
+        --radius-pill: 0px;
+
+        /* ─── Elevation ─── 1px ring, or a hard 4px offset ink shadow; never blur */
+        --elev-flat: none;
+        --elev-ring: 0 0 0 1px var(--border);
+        --elev-raised: 4px 4px 0 var(--fg);
+
+        /* ─── Focus ─── 2px accent ring with a 2px gap (matches outline-offset:2px in tdna.css) */
+        --focus-ring: 0 0 0 2px var(--surface), 0 0 0 4px var(--accent);
+
+        /* ─── Motion ─── 120–150ms; background / shadow / 1px translate only */
+        --motion-fast: 120ms;
+        --motion-base: 150ms;
+        --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+
+        /* ─── Layout ─── */
+        --container-max: 1100px;
+        --container-gutter-desktop: 32px;
+        --container-gutter-tablet: 24px;
+        --container-gutter-phone: 16px;
+
+        /* ─── TDNA extensions (--tdna-*) ─── the ten CIS colours (print + digital, never altered), spine, tints */
+        --tdna-yellow: #FFD028;
+        --tdna-cyan: #10B8D9;
+        --tdna-pink: #F9D2E5;
+        --tdna-orange: #E74310;
+        --tdna-green: #00993E;
+        --tdna-red: #E4003D;
+        --tdna-plum: #C54090;
+        --tdna-blue: #004E9D;
+        --tdna-grey: #F6F6F6;
+        --tdna-black: #1E1F1C;
+        --tdna-white: #FFFFFF;
+        --tdna-spine: var(--tdna-yellow);
+        --tdna-spine-width: 10px;
+        --tdna-ctrl: #8A8C86;
+        --tdna-tint-blue: color-mix(in srgb, var(--tdna-blue) 8%, var(--surface));
+        --tdna-tint-green: color-mix(in srgb, var(--tdna-green) 10%, var(--surface));
+        --tdna-tint-yellow: color-mix(in srgb, var(--tdna-yellow) 25%, var(--surface));
+        --tdna-tint-pink: color-mix(in srgb, var(--tdna-pink) 50%, var(--surface));
+        --tdna-tracking-label: 0.12em;
+      }
+
+      *, *::before, *::after { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; }
+      body { min-height: 100vh; background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: var(--text-base); line-height: var(--leading-body); font-variant-numeric: tabular-nums; -webkit-font-smoothing: antialiased; }
+      img { display: block; max-width: 100%; }
+      h1, h2, h3, p, ul, figure { margin: 0; }
+      a { color: var(--accent); }
+      button, input, select, textarea { font: inherit; color: inherit; }
+
+      /* page shell — one spine per page */
+      .page { max-width: var(--container-max); margin: var(--space-8) auto; background: var(--surface); border: 1px solid var(--border); border-left: var(--tdna-spine-width) solid var(--tdna-spine); }
+      section { padding: var(--space-6) var(--container-gutter-desktop); border-bottom: 1px solid var(--border-soft); }
+      section:last-of-type { border-bottom: 0; }
+      .stack > * + * { margin-block-start: var(--space-4); }
+      @media (max-width: 1023px) { section { padding-inline: var(--container-gutter-tablet); } }
+      @media (max-width: 639px) { .page { margin: 0; } section { padding: var(--space-4) var(--container-gutter-phone); } }
+
+      /* type */
+      h1 { font-size: var(--text-2xl); font-weight: 800; letter-spacing: var(--tracking-display); line-height: var(--leading-tight); text-wrap: balance; }
+      h2 { font-size: var(--text-xl); font-weight: 800; line-height: var(--leading-tight); }
+      h3 { font-size: var(--text-lg); font-weight: 700; }
+      .display { font-size: var(--text-4xl); font-weight: 800; letter-spacing: -0.02em; line-height: var(--leading-tight); }
+      .label { font-size: var(--text-xs); font-weight: 600; letter-spacing: var(--tdna-tracking-label); text-transform: uppercase; color: var(--muted); }
+      .lead { font-size: var(--text-lg); color: var(--fg-2); max-width: 64ch; }
+      .caption { font-size: var(--text-sm); color: var(--muted); }
+      code { font-family: var(--font-mono); font-size: 0.92em; }
+
+      /* hero / page head */
+      .head { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-4); flex-wrap: wrap; }
+      .head img { height: 40px; width: auto; }
+      .head p { margin-top: 2px; color: var(--muted); }
+
+      /* nav (top bar variant for public pages) */
+      .nav { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-3) var(--container-gutter-desktop); border-bottom: 1px solid var(--border); }
+      .nav img { height: 24px; width: auto; }
+      .nav a { font-weight: 600; text-decoration: none; color: var(--fg-2); padding: var(--space-2) var(--space-3); border-bottom: 3px solid transparent; }
+      .nav a:hover { color: var(--fg); background: var(--border-soft); }
+      .nav a[aria-current="page"] { color: var(--accent); border-bottom-color: var(--accent); }
+      .nav a:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+
+      /* buttons */
+      .actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); }
+      .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 36px; padding: 0 14px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--surface); color: var(--fg); font-weight: 600; white-space: nowrap; text-decoration: none; cursor: pointer; transition: background var(--motion-base) var(--ease-standard), box-shadow var(--motion-base) var(--ease-standard), transform var(--motion-base) var(--ease-standard); }
+      .btn:hover { background: var(--border-soft); }
+      .btn:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+      .btn.pri { background: var(--accent); color: var(--accent-on); border-color: var(--accent); }
+      .btn.pri:hover { box-shadow: var(--elev-raised); transform: translate(-1px, -1px); }
+      .btn.pri:active { background: var(--accent-active); box-shadow: none; transform: none; }
+      .btn.danger { color: var(--danger); border-color: var(--danger); }
+      .btn.sm { min-height: 32px; padding: 0 10px; font-size: var(--text-xs); }
+      .btn[disabled] { opacity: 0.5; cursor: not-allowed; }
+      .link { color: var(--accent); font-weight: 600; }
+
+      /* pills */
+      .pill { display: inline-block; padding: 1px 8px; font-size: var(--text-xs); font-weight: 600; border: 1px solid var(--border); white-space: nowrap; }
+      .pill.good { border-color: var(--success); color: var(--success); }
+      .pill.warn { border-color: var(--warn); color: var(--warn); }
+      .pill.bad { border-color: var(--danger); color: var(--danger); }
+      .pill.brand { border-color: var(--accent); color: var(--accent); }
+      .pill.muted { color: var(--muted); }
+
+      /* kpi */
+      .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: var(--space-3); }
+      .kpi { background: var(--surface); border: 1px solid var(--border); padding: var(--space-4); }
+      .kpi .v { font-size: var(--text-3xl); font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; margin-top: 6px; }
+      .kpi .v small { font-size: var(--text-sm); font-weight: 600; color: var(--muted); margin-left: 4px; }
+      .kpi .d { font-size: var(--text-xs); color: var(--fg-2); margin-top: 4px; }
+      .kpi.alert { border-color: var(--warn); } .kpi.alert .v { color: var(--warn); }
+
+      /* panel + tint cards */
+      .grid2 { display: grid; grid-template-columns: 3fr 2fr; gap: var(--space-4); }
+      .grid2 > * { min-width: 0; }
+      .panel { background: var(--surface); border: 1px solid var(--border); }
+      .panel .ph { display: flex; justify-content: space-between; align-items: baseline; padding: var(--space-3) var(--space-4); border-bottom: 1px solid var(--border-soft); }
+      .panel .ph h2 { font-size: var(--text-lg); font-weight: 700; }
+      .panel .ph span { font-size: var(--text-xs); color: var(--muted); }
+      .panel .pb { padding: var(--space-4); }
+      .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-3); }
+      .card { background: var(--surface); border: 1px solid var(--border); border-left: var(--tdna-spine-width) solid var(--card-bar, var(--tdna-spine)); padding: var(--space-4); display: grid; gap: var(--space-2); text-decoration: none; color: var(--fg); transition: box-shadow var(--motion-base) var(--ease-standard), transform var(--motion-base) var(--ease-standard); }
+      .card:hover { box-shadow: var(--elev-raised); transform: translate(-1px, -1px); }
+      .card .when { font-size: var(--text-xs); font-weight: 600; letter-spacing: var(--tdna-tracking-label); text-transform: uppercase; color: var(--muted); }
+      .card h3 { font-size: var(--text-lg); }
+      .card .where { font-size: var(--text-sm); color: var(--fg-2); }
+      .box { padding: var(--space-3) var(--space-4); border: 1px solid var(--border); }
+      .box.blue { background: var(--tdna-tint-blue); } .box.green { background: var(--tdna-tint-green); } .box.yellow { background: var(--tdna-tint-yellow); } .box.pink { background: var(--tdna-tint-pink); }
+      .note { border: 1px dashed var(--border); padding: var(--space-3) var(--space-4); color: var(--fg-2); font-size: var(--text-sm); background: var(--surface); }
+
+      /* form */
+      .fields { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-3) var(--space-4); }
+      .fields label { display: grid; gap: 4px; font-size: var(--text-xs); font-weight: 600; color: var(--fg-2); }
+      .fields label.wide { grid-column: 1 / -1; }
+      input, select, textarea { min-height: 36px; padding: 6px 10px; border: 1px solid var(--tdna-ctrl); border-radius: var(--radius-sm); background: var(--surface); width: 100%; }
+      textarea { min-height: 88px; resize: vertical; }
+      input:focus-visible, select:focus-visible, textarea:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+      .fields .err { color: var(--danger); font-weight: 500; display: none; }
+      .fields label.bad .err { display: block; }
+      .fields label.bad input, .fields label.bad select { border-color: var(--danger); }
+      .fact { display: flex; gap: var(--space-2); justify-content: flex-end; margin-top: var(--space-5); flex-wrap: wrap; }
+      .fact .del { margin-right: auto; }
+
+      /* table */
+      .tbl { overflow-x: auto; background: var(--surface); border: 1px solid var(--border); }
+      table { border-collapse: collapse; width: 100%; min-width: 560px; }
+      th, td { padding: 10px 12px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--border-soft); white-space: nowrap; }
+      th { font-size: var(--text-xs); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+      th.sorted { color: var(--accent); }
+      tbody tr:hover { background: color-mix(in srgb, var(--accent) 6%, transparent); }
+      td.num { text-align: right; font-weight: 600; }
+
+      /* toast + footer */
+      .toast { display: inline-block; background: var(--fg); color: var(--bg); padding: 8px 14px; font-weight: 600; }
+      footer { padding: var(--space-4) var(--container-gutter-desktop); border-top: 1px solid var(--border-soft); font-size: var(--text-xs); color: var(--muted); display: flex; justify-content: space-between; gap: var(--space-3); flex-wrap: wrap; }
+      footer img { height: 20px; width: auto; }
+
+      @media (max-width: 860px) { .grid2, .fields { grid-template-columns: 1fr; } input, select, textarea { font-size: 16px; } .btn, .btn.sm { min-height: 44px; } }
+      @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <nav class="nav" aria-label="Site">
+        <img src="assets/logo/logo-black.svg" alt="TDNA" />
+        <a href="#" aria-current="page">活動</a><a href="#">會員</a><a href="#">關於協會</a>
+        <a class="btn sm" href="#" style="margin-left: auto">登入</a>
+      </nav>
+
+      <section>
+        <div class="head">
+          <div>
+            <p class="label">Taiwan Digital Nomad Association</p>
+            <h1>台灣數位遊牧者協會</h1>
+            <p>整合政府與產業資源，協助數位遊牧者在職涯與交流上成功。</p>
+          </div>
+          <div class="actions"><a class="btn pri" href="#">加入會員</a><a class="btn" href="#">看活動</a></div>
+        </div>
+      </section>
+
+      <section class="stack">
+        <p class="label">KPI cards</p>
+        <div class="kpis">
+          <div class="kpi"><div class="label">有效會員</div><div class="v">1,248<small>人</small></div><div class="d">較上月 +36</div></div>
+          <div class="kpi"><div class="label">本月活動</div><div class="v">9<small>場</small></div><div class="d">3 場已額滿</div></div>
+          <div class="kpi alert"><div class="label">待處理報帳</div><div class="v">7<small>筆</small></div><div class="d">2 筆逾 7 天</div></div>
+          <div class="kpi"><div class="label">電子報開信率</div><div class="v">42<small>%</small></div><div class="d">上期 38%</div></div>
+        </div>
+      </section>
+
+      <section class="stack">
+        <p class="label">Hub cards · colour bar from the tints, one per card</p>
+        <div class="cards">
+          <a class="card" href="#" style="--card-bar: var(--tdna-yellow)"><span class="when">10/04 六 · 14:00</span><h3>遊牧者聚會 Taipei Meetup</h3><span class="where">台北 · 小樹屋 中山館</span><span class="pill brand">報名中</span></a>
+          <a class="card" href="#" style="--card-bar: var(--tdna-cyan)"><span class="when">10/11 六 · 09:30</span><h3>台東 Workation 週</h3><span class="where">台東 · 都蘭</span><span class="pill warn">候補</span></a>
+          <a class="card" href="#" style="--card-bar: var(--tdna-pink)"><span class="when">10/18 六 · 19:00</span><h3>接案財務與報稅工作坊</h3><span class="where">線上</span><span class="pill good">免費</span></a>
+        </div>
+        <div class="cards">
+          <div class="box blue"><b>主辦</b> 台灣數位遊牧者協會 × 台東縣政府</div>
+          <div class="box green"><b>合作</b> 花蓮 Nomad Hub</div>
+          <div class="box yellow"><b>提醒</b> 名額 30 人，10/10 截止</div>
+          <div class="box pink"><b>票價</b> 會員免費，非會員 NT$300</div>
+        </div>
+      </section>
+
+      <section class="grid2">
+        <article class="panel">
+          <div class="ph"><h2>報帳申請</h2><span>草稿 · 未送出</span></div>
+          <form class="pb">
+            <div class="fields">
+              <label>申請人<input value="陳美玲" /></label>
+              <label>專案<select><option>2026 台東 Workation</option><option selected>2026 會員大會</option></select></label>
+              <label class="bad">金額 NT$<input value="1,2OO" aria-describedby="e1" /><span class="err" id="e1">只能輸入數字，例如 1200</span></label>
+              <label>日期<input type="date" value="2026-09-16" /></label>
+              <label class="wide">事由<textarea>會員大會場地租金與茶點。</textarea></label>
+            </div>
+            <div class="fact"><button type="button" class="btn danger del">刪除</button><button type="button" class="btn">取消</button><button type="button" class="btn pri">儲存</button></div>
+          </form>
+        </article>
+        <article class="panel">
+          <div class="ph"><h2>最近款項</h2><span>共 4 筆</span></div>
+          <div class="tbl">
+            <table>
+              <thead><tr><th>日期</th><th class="sorted">項目</th><th>狀態</th><th style="text-align: right">NT$</th></tr></thead>
+              <tbody>
+                <tr><td>09/12</td><td>會員大會場地</td><td><span class="pill good">已付款</span></td><td class="num">12,000</td></tr>
+                <tr><td>09/10</td><td>台東 Workation 住宿訂金</td><td><span class="pill warn">待處理</span></td><td class="num">18,500</td></tr>
+                <tr><td>09/08</td><td>電子報平台月費</td><td><span class="pill bad">失敗</span></td><td class="num">1,200</td></tr>
+                <tr><td>09/01</td><td>講師費</td><td><span class="pill muted">已封存</span></td><td class="num">6,000</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="stack">
+        <p class="label">Buttons, pills, note, toast</p>
+        <div class="actions">
+          <button class="btn pri">儲存</button><button class="btn">取消</button><button class="btn danger">刪除</button><button class="btn sm">編輯</button><button class="btn" disabled>處理中</button><a class="link" href="#">查看全部</a>
+        </div>
+        <div class="actions">
+          <span class="pill good">已付款</span><span class="pill warn">待處理</span><span class="pill bad">失敗</span><span class="pill brand">進行中</span><span class="pill muted">已封存</span>
+        </div>
+        <p class="note">標誌與標準字之間的距離皆經過計算。請依擺放空間比例直接取用提供的組合，<b>請勿自行組合</b>。</p>
+        <span class="toast">已儲存</span>
+      </section>
+
+      <footer><span>台灣數位遊牧者協會 Taiwan Digital Nomad Association</span><img src="assets/logo/horizontal-en-black.svg" alt="" /></footer>
+    </main>
+  </body>
+</html>

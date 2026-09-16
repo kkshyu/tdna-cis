@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TDNA colours</title>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;800&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../tokens.css" />
+    <link rel="stylesheet" href="_base.css" />
+    <style>
+      .sw { min-height: 150px; padding: var(--space-3); display: flex; flex-direction: column; justify-content: space-between; border: 1px solid var(--border); font-size: var(--text-sm); }
+      .sw b { display: block; font-size: var(--text-lg); }
+      .sw code { opacity: 0.85; }
+      .roles .cell { display: grid; grid-template-columns: 40px 1fr; gap: var(--space-3); align-items: start; }
+      .chip { width: 40px; height: 40px; border: 1px solid var(--border); background: var(--value); }
+      .roles strong { display: block; }
+      .roles span { font-size: var(--text-sm); color: var(--muted); }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="label">3. 色彩計畫 · CIS 原色</p>
+      <h1>Ten official colours</h1>
+      <section class="grid g5" aria-label="CIS colours">
+        <article class="sw" style="background: var(--tdna-yellow); color: var(--tdna-black)"><b>黃 Yellow</b><span><code>#FFD028</code><br />CMYK 0,19,88,0 · text ink 11.3</span></article>
+        <article class="sw" style="background: var(--tdna-cyan); color: var(--tdna-black)"><b>青 Cyan</b><span><code>#10B8D9</code><br />CMYK 71,0,13,0 · text ink 7.0</span></article>
+        <article class="sw" style="background: var(--tdna-pink); color: var(--tdna-black)"><b>粉 Pink</b><span><code>#F9D2E5</code><br />CMYK 0,25,0,0 · text ink 12.1</span></article>
+        <article class="sw" style="background: var(--tdna-orange); color: #fff"><b>橘 Orange</b><span><code>#E74310</code><br />CMYK 0,84,100,0 · white 4.0 display only</span></article>
+        <article class="sw" style="background: var(--tdna-green); color: #fff"><b>綠 Green</b><span><code>#00993E</code><br />CMYK 93,2,100,0 · white 3.7 display only</span></article>
+        <article class="sw" style="background: var(--tdna-red); color: #fff"><b>紅 Red</b><span><code>#E4003D</code><br />CMYK 0,100,67,0 · text white 4.8</span></article>
+        <article class="sw" style="background: var(--tdna-plum); color: #fff"><b>洋紅 Plum</b><span><code>#C54090</code><br />CMYK 23,86,0,0 · text white 4.7</span></article>
+        <article class="sw" style="background: var(--tdna-blue); color: #fff"><b>藍 Blue</b><span><code>#004E9D</code><br />CMYK 100,71,2,0 · text white 8.2</span></article>
+        <article class="sw" style="background: var(--tdna-grey); color: var(--tdna-black)"><b>淺灰 Grey</b><span><code>#F6F6F6</code><br />CMYK 0,0,0,5 · text ink 15.3</span></article>
+        <article class="sw" style="background: var(--tdna-black); color: #fff"><b>近黑 Black</b><span><code>#1E1F1C</code><br />CMYK 75,65,65,80 · text white 16.6</span></article>
+      </section>
+      <p class="note">Values are fixed for print and screen. UI never reads these directly; it reads the semantic layer below. Green and red are not small text on white — use <code>--success</code> / <code>--danger</code>.</p>
+
+      <h2>Semantic tokens</h2>
+      <section class="grid g3 roles" aria-label="Token roles">
+        <article class="cell"><span class="chip" style="--value: var(--bg)"></span><div><strong>--bg</strong><span>Page paper · grey</span></div></article>
+        <article class="cell"><span class="chip" style="--value: var(--surface)"></span><div><strong>--surface</strong><span>Panels, cards · white</span></div></article>
+        <article class="cell"><span class="chip" style="--value: var(--surface-warm)"></span><div><strong>--surface-warm</strong><span>Warm block · pink tint</span></div></article>
+        <article class="cell"><span class="chip" style="--value: var(--fg)"></span><div><strong>--fg</strong><span>Body text, toast · ink</span></div></article>
+        <article class="cell"><span class="chip" style="--value: var(--fg-2)"></span><div><strong>--fg-2</strong><span>Secondary copy, field labels</span></div></article>
+        <article class="cell"><span class="chip" style="--value: var(--muted)"></span><div><strong>--muted / --meta</strong><span>Captions, table heads · 5.7 on white</span></div></article>
+        <article class="cell"><span class="chip" style="--value: var(--border)"></span><div><strong>--border</strong><span>Panel and card outline</span></div></article>
+        <article class="cell"><span class="chip" style="--value: var(--border-soft)"></span><div><strong>--border-soft</strong><span>Row separators, hover fill</span></div></article>
+        <article class="cell"><span class="chip" style="--value: var(--accent)"></span><div><strong>--accent</strong><span>Primary action, links, selected · CIS blue</span></div></article>
+        <article class="cell"><span class="chip" style="--value: var(--success)"></span><div><strong>--success</strong><span>Done, paid, online · green pressed to 5.5</span></div></article>
+        <article class="cell"><span class="chip" style="--value: var(--warn)"></span><div><strong>--warn</strong><span>Pending, overdue · orange pressed to 5.4</span></div></article>
+        <article class="cell"><span class="chip" style="--value: var(--danger)"></span><div><strong>--danger</strong><span>Error, delete, failed · red pressed to 6.1</span></div></article>
+        <article class="cell"><span class="chip" style="--value: var(--tdna-spine)"></span><div><strong>--tdna-spine</strong><span>10px left bar · yellow</span></div></article>
+        <article class="cell"><span class="chip" style="--value: var(--tdna-tint-blue)"></span><div><strong>--tdna-tint-blue</strong><span>Organiser box, hints · blue 8%</span></div></article>
+        <article class="cell"><span class="chip" style="--value: var(--tdna-tint-green)"></span><div><strong>--tdna-tint-green</strong><span>Card bar, partner badge · green 10%</span></div></article>
+        <article class="cell"><span class="chip" style="--value: var(--tdna-tint-yellow)"></span><div><strong>--tdna-tint-yellow</strong><span>Card bar · yellow 25%</span></div></article>
+        <article class="cell"><span class="chip" style="--value: var(--tdna-tint-pink)"></span><div><strong>--tdna-tint-pink</strong><span>Card bar · pink 50%</span></div></article>
+      </section>
+      <p class="note">Tints are always <code>color-mix()</code> of a CIS colour into <code>--surface</code>. Dark mode re-tunes the text tokens and lifts <code>--accent</code> to <code>#4F9BE8</code>; CIS fills keep their values.</p>
+    </main>
+  </body>
+</html>

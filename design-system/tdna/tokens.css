@@ -1,0 +1,131 @@
+/* design-systems/tdna/tokens.css
+ * TDNA — Taiwan Digital Nomad Association. 《TDNA 品牌視覺系統 VI 2.1》(Aug 2024, Kipha Lu)
+ * bound to the OpenDesign token contract. Source of truth for digital UI: cis/assets/tdna.css
+ * (shared by admin.dna.org.tw, hub.dna.org.tw and cis.dna.org.tw). Ten fixed CIS colours,
+ * semantic tokens on top, hard edges, hard offset shadow, 10px yellow spine.
+ */
+
+:root {
+  /* ─── Surface ─── light grey paper for the page, white for panels; warm tint is the pink CIS colour mixed into white */
+  --bg: #F6F6F6;
+  --surface: #FFFFFF;
+  --surface-warm: color-mix(in srgb, #F9D2E5 50%, #FFFFFF);
+
+  /* ─── Foreground ─── near-black ink for text; ink2 for secondary copy and field labels */
+  --fg: #1E1F1C;
+  --fg-2: #4A4C47;
+  --muted: #66685F;
+  --meta: var(--muted);
+
+  /* ─── Border ─── warm greys; soft for inner rows */
+  --border: #DCDDD8;
+  --border-soft: #ECEDE9;
+
+  /* ─── Accent ─── CIS blue is the only action colour; white text on it (8.2:1) */
+  --accent: #004E9D;
+  --accent-on: #FFFFFF;
+  --accent-hover: color-mix(in oklab, var(--accent), black 8%);
+  --accent-active: color-mix(in oklab, var(--accent), black 14%);
+
+  /* ─── Semantic ─── CIS green / orange / red pressed darker so they pass 4.5:1 as text on white */
+  --success: #007A31;
+  --warn: #C4380C;
+  --danger: #C7002F;
+
+  /* ─── Typography ─── print uses TT Hei CHS / TT Commons Pro (licensed); web substitutes Figtree + Noto Sans TC */
+  --font-display: "Figtree", "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+  --font-body: "Figtree", "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Monaco, Consolas, monospace;
+
+  /* type scale — 14px body, 12px labels are the floor */
+  --text-xs: 12px;
+  --text-sm: 13px;
+  --text-base: 14px;
+  --text-lg: 15px;
+  --text-xl: 18px;
+  --text-2xl: 26px;
+  --text-3xl: 30px;
+  --text-4xl: 40px;
+  --leading-body: 1.5;
+  --leading-tight: 1.15;
+  --tracking-display: -0.01em;
+
+  /* ─── Spacing ─── 4px grid; TDNA uses steps 1·2·3·4·6·8 (4/8/12/16/24/32) — step 5 exists for the contract only */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --section-y-desktop: 64px;
+  --section-y-tablet: 48px;
+  --section-y-phone: 32px;
+
+  /* ─── Radius ─── none; every box is square */
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-pill: 0px;
+
+  /* ─── Elevation ─── 1px ring, or a hard 4px offset ink shadow; never blur */
+  --elev-flat: none;
+  --elev-ring: 0 0 0 1px var(--border);
+  --elev-raised: 4px 4px 0 var(--fg);
+
+  /* ─── Focus ─── 2px accent ring with a 2px gap (matches outline-offset:2px in tdna.css) */
+  --focus-ring: 0 0 0 2px var(--surface), 0 0 0 4px var(--accent);
+
+  /* ─── Motion ─── 120–150ms; background / shadow / 1px translate only */
+  --motion-fast: 120ms;
+  --motion-base: 150ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+
+  /* ─── Layout ─── */
+  --container-max: 1100px;
+  --container-gutter-desktop: 32px;
+  --container-gutter-tablet: 24px;
+  --container-gutter-phone: 16px;
+
+  /* ─── TDNA extensions (--tdna-*) ─── the ten CIS colours (print + digital, never altered), spine, tints */
+  --tdna-yellow: #FFD028;
+  --tdna-cyan: #10B8D9;
+  --tdna-pink: #F9D2E5;
+  --tdna-orange: #E74310;
+  --tdna-green: #00993E;
+  --tdna-red: #E4003D;
+  --tdna-plum: #C54090;
+  --tdna-blue: #004E9D;
+  --tdna-grey: #F6F6F6;
+  --tdna-black: #1E1F1C;
+  --tdna-white: #FFFFFF;
+  --tdna-spine: var(--tdna-yellow);
+  --tdna-spine-width: 10px;
+  --tdna-ctrl: #8A8C86;
+  --tdna-tint-blue: color-mix(in srgb, var(--tdna-blue) 8%, var(--surface));
+  --tdna-tint-green: color-mix(in srgb, var(--tdna-green) 10%, var(--surface));
+  --tdna-tint-yellow: color-mix(in srgb, var(--tdna-yellow) 25%, var(--surface));
+  --tdna-tint-pink: color-mix(in srgb, var(--tdna-pink) 50%, var(--surface));
+  --tdna-tracking-label: 0.12em;
+}
+
+/* Dark mode: same CIS colours as fills; text tokens re-tuned for contrast. Honour the OS unless data-theme is set. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141513; --surface: #1E1F1C; --surface-warm: color-mix(in srgb, #F9D2E5 14%, #1E1F1C);
+    --fg: #F1F1EC; --fg-2: #C9CAC3; --muted: #8F918A;
+    --border: #3A3B37; --border-soft: #2B2C29; --tdna-ctrl: #75776F;
+    --accent: #4F9BE8; --accent-on: #0B1B2E;
+    --success: #3FC271; --warn: #FF7A4D; --danger: #FF5C7A;
+    --elev-raised: 4px 4px 0 #000;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141513; --surface: #1E1F1C; --surface-warm: color-mix(in srgb, #F9D2E5 14%, #1E1F1C);
+  --fg: #F1F1EC; --fg-2: #C9CAC3; --muted: #8F918A;
+  --border: #3A3B37; --border-soft: #2B2C29; --tdna-ctrl: #75776F;
+  --accent: #4F9BE8; --accent-on: #0B1B2E;
+  --success: #3FC271; --warn: #FF7A4D; --danger: #FF5C7A;
+  --elev-raised: 4px 4px 0 #000;
+}
